@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %}Chatbot - Homepage{% endblock %}
+
+<!-- nav-bar left side -->
+{% block nav_bar_left %}
+
+{% endblock %}
+
+<!-- nav-bar center side -->
+{% block nav_bar_center %}
+<h1 class="text-center text-custom-color">Homepage</h1>
+{% endblock %}
+
+<!-- nav-bar right side -->
+{% block nav_bar_right %}
+
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+
+<div class="container mt-3 py-3 border border-custom-color">
+  
+  
+  <a href="#" class="btn-custom w-75 mx-auto d-block">
+    Start a new conversation
+  </a>
+  
+  <div class="container mt-4 py-3">
+    <h3 class="text-custom-color border-bottom border-custom-color pb-3">
+      Recent Conversations:
+    </h1>
+
+    {% if convos %}
+    <!-- not finished yet -->
+    {% else %}
+      <h4 class="text-custom-color mt-3">Go ahead and start a conversation :D</h4>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

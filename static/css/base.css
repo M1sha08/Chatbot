@@ -1,0 +1,48 @@
+:root {
+  --main-bg-color: #460646;
+  --text-color: #b164b1;
+  --secondary-bg-color: #581658;
+  --border-color: #8b118b;
+}
+
+body {
+  background: var(--main-bg-color);
+}
+
+.text-custom-color {
+  color: var(--text-color);
+}
+
+.border-custom-color {
+  border-color: var(--border-color) !important;
+}
+
+.btn-custom {
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+
+
+  padding: 10px 20px;         
+    border: var(--border-color);             
+    border-radius: 5px;       
+    cursor: pointer;          
+
+  
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;      
+
+   
+    transition: background-color 0.5s ease, transform 0.2s ease;
+}
+.btn-custom:hover {
+    background-color: var(--text-color);
+    color: var(--secondary-bg-color);
+    transform: translateY(-1px);
+}
+.btn-custom:active {
+    background-color: var(--main-bg-color);
+    transform: translateY(0);  
+}
+
