@@ -24,7 +24,7 @@
 <div class="container mt-3 py-3 border border-custom-color">
   
   
-  <a href="#" class="btn-custom w-75 mx-auto d-block">
+  <a href="#" class="btn-custom w-75 mx-auto d-block mt-3">
     Start a new conversation
   </a>
   
@@ -33,8 +33,12 @@
       Recent Conversations:
     </h1>
 
-    {% if convos %}
-    <!-- not finished yet -->
+    {% if chats %}
+      {% for chat in chats%}
+        <div class="container w-100">
+          {{ chat.title }}
+        </div>
+      {% endfor %}
     {% else %}
       <h4 class="text-custom-color mt-3">Go ahead and start a conversation :D</h4>
     {% endif %}

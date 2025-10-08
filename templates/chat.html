@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ chat_title }} {% endblock %}
+
+{% block nav_bar_left %}
+<div class="col-4">
+  <a href="{{ url_for('homepage') }}" class="btn-custom">
+    ← Go back
+  </a>
+</div>
+{% endblock %}
+
+{% block nav_bar_center %}
+<div class="col-4 d-flex align-items-center">
+  <h1 class="text-center text-custom-color">
+    {{ chat_title }}
+  </h1>
+</div>
+{% endblock %}
+
+{% block nav_bar_right %}
+<div class="col-4"></div>
+{% endblock %}
+
+{% block body %}
+
+<div class="container w-100 h-100">
+  <div class="row h-100 align-items-center">
+    <div class="col-12 h-100">
+
+      <div class="card h-100 d-flex flex-column">
+        
+        <div class="card-body" id="chat-box">
+          {% for message in messages %}
+
+            {% set is_user_message = (msg.sender = "User") %}
+            {% set derection_class = "user_message" if is_user_message else "bot_message" %}
+            {% set bubble_class = "user_message" if is_user_message else "bot_message" %}
+
+            <div class="{{ direction_class }} d-flex mb-2">
+              <div class="{{ bubble_class }} rounded p-2">
+                {{ msg.content }}
+              </div>
+            </div>
+
+          {% endfor %}
+        </div>
+
+        <div class="card-footer">
+          <form action="{{ url_for('chat', chat_id=chat_id) }}" method="POST">
+            <div class="input-form">
+              <input type="text" name="usr_msg" class="w-100" id="message_input" placeholder="Type a message...">
+              <button class="btn-custom">Send</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  window.onload = function() {
+    const chatBox = document.getElementById("chat-box");
+    const messageInput = document.getElementById("message-input");
+    
+    chatBox.scrollTop = chatBox.scrollHeight;
+    messageInput.focus();
+  }
+</script>
+
+{% endblock %}

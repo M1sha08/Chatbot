@@ -46,3 +46,12 @@ body {
     transform: translateY(0);  
 }
 
+.bot_message {
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+}
+
+.user_message {
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+}
